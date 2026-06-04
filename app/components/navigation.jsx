@@ -3,6 +3,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Pressable, Text, View } from "react-native";
 
 const Navigation = () => {
+    
     return (
         <View className="bg-white border-t-[0.5px] border-gray-800 pt-3 pb-16 flex-row justify-between items-start absolute bottom-0 left-0 right-0">
       

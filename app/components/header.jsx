@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { Image, Pressable, Text, View } from "react-native";
 import { useState } from "react";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 
 const Header = () => {
@@ -16,10 +17,7 @@ const Header = () => {
                 onPress={() => router.push("/profile")}
                 className="w-10 h-10 rounded-full bg-gray-300 justify-center items-center"
             >
-                <Image
-                source={require("../../assets/images/react-logo.png")}
-                className="w-10 h-10 rounded-full"
-                />
+                <FontAwesome6 name="circle-user" size={32} color="#10B981" />
             </Pressable>
         </View>
     );
