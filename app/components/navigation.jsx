@@ -1,22 +1,26 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Pressable, Text, View } from "react-native";
-import { useRouter } from "expo-router";
+import { useRouter, usePathname } from "expo-router";
 
 const Navigation = () => {
 
     const router = useRouter();
+    const pathname = usePathname();
+    
+    const isActive = (route) => pathname === route;
+    const getIconColor = (route) => isActive(route) ? "#10B981" : "#1A3636";
+    const getTextClass = (route) => isActive(route) ? "text-primaryGreen" : "text-textBlue";
     
     return (
         <View className="bg-white border-t-[0.5px] border-gray-800 pt-3 pb-16 flex-row justify-between items-start absolute bottom-0 left-0 right-0">
       
-            {/* 1. Item Tab (Active / Green) */}
+            {/* 1. Item Tab */}
             <Pressable className="items-center justify-center flex-1"
                 onPress={() => router.push("/pages/item")}
             >
-                {/* Icons require string properties, so we pass the hex code directly */}
-                <Ionicons name="home-outline" size={26} color="#10B981" />
-                <Text className="text-primaryGreen text-xs font-black mt-1">
+                <Ionicons name="home-outline" size={26} color={getIconColor("/pages/item")} />
+                <Text className={`${getTextClass("/pages/item")} text-xs font-black mt-1`}>
                     Item
                 </Text>
             </Pressable>
@@ -25,8 +29,8 @@ const Navigation = () => {
             <Pressable className="items-center justify-center flex-1"
                 onPress={() => router.push("/pages/cart")}
             >
-                <Ionicons name="cart-outline" size={26} color="#1A3636" />
-                <Text className="text-textBlue text-xs font-medium mt-1">
+                <Ionicons name="cart-outline" size={26} color={getIconColor("/pages/cart")} />
+                <Text className={`${getTextClass("/pages/cart")} text-xs font-medium mt-1`}>
                     Cart
                 </Text>
             </Pressable>
@@ -35,8 +39,8 @@ const Navigation = () => {
             <Pressable className="items-center justify-center flex-1"
                 onPress={() => router.push("/pages/utang")}
             >
-                <MaterialCommunityIcons name="paperclip" size={26} color="#1A3636" />
-                <Text className="text-textBlue text-xs font-medium mt-1">
+                <MaterialCommunityIcons name="paperclip" size={26} color={getIconColor("/pages/utang")} />
+                <Text className={`${getTextClass("/pages/utang")} text-xs font-medium mt-1`}>
                     Utang
                 </Text>
             </Pressable>
@@ -48,9 +52,9 @@ const Navigation = () => {
                 <MaterialCommunityIcons
                     name="clipboard-text-outline"
                     size={26}
-                    color="#1A3636"
+                    color={getIconColor("/pages/log")}
                 />
-                <Text className="text-textBlue text-xs font-medium mt-1">
+                <Text className={`${getTextClass("/pages/log")} text-xs font-medium mt-1`}>
                     Log
                 </Text>
             </Pressable>
