@@ -12,7 +12,7 @@ const Navigation = () => {
       
             {/* 1. Item Tab (Active / Green) */}
             <Pressable className="items-center justify-center flex-1"
-                onPress={() => router.push("/item")}
+                onPress={() => router.push("/pages/item")}
             >
                 {/* Icons require string properties, so we pass the hex code directly */}
                 <Ionicons name="home-outline" size={26} color="#10B981" />
@@ -23,7 +23,7 @@ const Navigation = () => {
 
             {/* 2. Cart Tab */}
             <Pressable className="items-center justify-center flex-1"
-                onPress={() => router.push("/cart")}
+                onPress={() => router.push("/pages/cart")}
             >
                 <Ionicons name="cart-outline" size={26} color="#1A3636" />
                 <Text className="text-textBlue text-xs font-medium mt-1">
@@ -33,7 +33,7 @@ const Navigation = () => {
 
             {/* 3. Utang Tab */}
             <Pressable className="items-center justify-center flex-1"
-                onPress={() => router.push("/utang")}
+                onPress={() => router.push("/pages/utang")}
             >
                 <MaterialCommunityIcons name="paperclip" size={26} color="#1A3636" />
                 <Text className="text-textBlue text-xs font-medium mt-1">
@@ -43,7 +43,7 @@ const Navigation = () => {
 
             {/* 4. Log Tab */}
             <Pressable className="items-center justify-center flex-1"
-                onPress={() => router.push("/log")}
+                onPress={() => router.push("/pages/log")}
             >
                 <MaterialCommunityIcons
                     name="clipboard-text-outline"

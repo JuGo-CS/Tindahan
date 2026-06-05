@@ -1,17 +1,6 @@
-import { View } from "react-native";
-import Header from "./components/header.jsx";
-import Navigation from "./components/navigation.jsx";
-import SearchBar from "./components/items/searchBar.jsx";
+import { Redirect } from "expo-router";
 
 export default function Index() {
-  return (
-    <View className="flex-1 bg-backgroundWhite">
-    	<Header />
-		<SearchBar />
-      {/* <Text className="text-red-700 text-5xl">Edit app/index.tsx to edit this screen.</Text> */}
-	  
-		<Navigation />
-
-    </View>
-  );
+	// Forces the app to instantly display the item page upon opening
+	return <Redirect href="/pages/item" />;
 }

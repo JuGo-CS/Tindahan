@@ -1,12 +1,19 @@
-import { Stack } from "expo-router";
+import { Slot } from "expo-router";
+import { View, ScrollView } from "react-native";
 import "../global.css";
+import Header from "./components/header.jsx";
+import Navigation from "./components/navigation.jsx";
 
 export default function RootLayout() {
-  return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-      }}
-    />
-  );
+	return (
+		<View className="flex-1 bg-backgroundWhite">
+			<Header />
+
+			<ScrollView className="flex-1 mb-28">
+				<Slot /> 
+			</ScrollView>
+
+			<Navigation />
+		</View>
+	);
 }
