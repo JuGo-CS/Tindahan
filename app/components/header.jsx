@@ -1,13 +1,12 @@
-import { useRouter } from 'expo-router';
-import { Pressable, Text, View } from 'react-native';
-import { useState } from 'react';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { useRouter } from 'expo-router';
+import { useState } from 'react';
+import { Pressable, Text, View } from 'react-native';
 
 const Header = () => {
     const router = useRouter();
 
     const [storeName, setStoreName] = useState('Lorna');
-    setStoreName('Lorna');
 
     return (
         <View className="bg-[#10B981] px-4 pt-14 pb-3 flex-row justify-between items-center">
