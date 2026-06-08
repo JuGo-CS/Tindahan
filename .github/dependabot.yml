@@ -14,3 +14,9 @@ updates:
 
       commit-message:
           prefix: 'chore'
+
+      ignore:
+          - dependency-name: 'expo*'
+          - dependency-name: 'react-native*'
+          - dependency-name: 'tailwindcss'
+          - dependency-name: 'babel-preset-expo'
