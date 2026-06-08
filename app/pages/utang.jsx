@@ -1,13 +1,13 @@
-import { View, Text } from "react-native";
+import { View, Text } from 'react-native';
 
 const UtangScreen = () => {
-    return ( 
+    return (
         <View>
             <Text className="font-semibold text-3xl text-slate-500">
                 This is Utang Page.
             </Text>
         </View>
     );
-}
- 
+};
+
 export default UtangScreen;
