@@ -1,7 +1,7 @@
-import { View } from "react-native";
-import Total from "./total.jsx";
-import UtangButton from "./utangButton.jsx";
-import BayadButton from "./bayadButton.jsx";
+import { View } from 'react-native';
+import Total from './total.jsx';
+import UtangButton from './utangButton.jsx';
+import BayadButton from './bayadButton.jsx';
 
 const Summation = ({ totalAmount, onUtangPress, onBayadPress }) => {
     return (

@@ -1,8 +1,8 @@
-import { Pressable, Text } from "react-native";
+import { Pressable, Text } from 'react-native';
 
 const UtangButton = ({ onPress }) => {
     return (
-        <Pressable 
+        <Pressable
             onPress={onPress}
             className="flex-1 bg-activeOrange active:bg-inactiveOrange py-4 rounded-xl items-center justify-center shadow-md"
         >
