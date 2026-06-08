@@ -17,7 +17,7 @@ const ItemGrid: React.FC<ItemGridProps> = ({ items, onAddItem }) => {
             key={numColumns}
             keyExtractor={(item) => item.item_id.toString()}
             numColumns={numColumns}
-            contentContainerStyle={{ paddingHorizontal: 6, paddingBottom: 120 }}
+            contentContainerStyle={{ paddingHorizontal: 9, paddingBottom: 120 }}
             renderItem={({ item }) => (
                 <ItemProductCard item={item} onAddPress={onAddItem} />
             )}
