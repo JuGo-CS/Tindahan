@@ -1,39 +1,44 @@
-import { View, Text, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, ActivityIndicator, Text } from 'react-native';
 import SearchBar from '../components/items/searchBar.jsx';
+import ItemGrid from '../components/items/itemGrid';
+import { itemService } from '../../backend/pages/itemServices/fetchingItems';
 
 const ItemScreen = () => {
-    const cloudName = 'djssijeqe';
-    const versionNumber = 'v1780757228';
-    const fileName = 'taihing_mushrooms_425g.jpg';
+    const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const testImageUrl = `https://res.cloudinary.com/${cloudName}/image/upload/${versionNumber}/${fileName}`;
+    useEffect(() => {
+        const fetchStoreCatalog = async () => {
+            const data = await itemService.getAllActiveItems();
+            if (data) {
+                setItems(data);
+            }
+            setLoading(false);
+        };
+
+        fetchStoreCatalog();
+    }, []);
+
+    const handleAddToCart = (selectedItem) => {
+        console.log('Item click registration active for:', selectedItem.name);
+    };
+
+    if (loading) {
+        return (
+            <View className="flex-1 justify-center items-center bg-slate-50">
+                <ActivityIndicator size="large" color="#10b981" />
+                <Text className="text-slate-400 mt-2 font-medium">
+                    Opening Tindahan Catalog...
+                </Text>
+            </View>
+        );
+    }
 
     return (
         <View className="flex-1">
             <SearchBar />
-
-            {/* <View className="px-4">
-                <Text className="font-semibold text-3xl text-slate-500">
-                    This is Item Page.
-                </Text>
-            </View> */}
-
-            <View className="px-4 mt-8 items-center">
-                <View className="bg-white p-5 rounded-2xl shadow-2xl items-center w-full max-w-xs">
-                    <View className="w-48 h-48 bg-slate-50 rounded-xl items-center justify-center p-2 mb-4">
-                        <Image
-                            source={{ uri: testImageUrl }}
-                            className="w-full h-full"
-                            resizeMode="contain"
-                        />
-                    </View>
-
-                    {/* Product Metadata Labels */}
-                    <Text className="text-lg font-bold text-slate-700 capitalize">
-                        Taihing Mushrooms
-                    </Text>
-                </View>
-            </View>
+            <ItemGrid items={items} onAddItem={handleAddToCart} />
         </View>
     );
 };
