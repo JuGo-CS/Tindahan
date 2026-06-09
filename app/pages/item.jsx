@@ -26,9 +26,9 @@ const ItemScreen = () => {
 
     if (loading) {
         return (
-            <View className="flex-1 justify-center items-center bg-slate-50">
+            <View className="flex-1 justify-center items-center">
                 <ActivityIndicator size="large" color="#10b981" />
-                <Text className="text-slate-400 mt-2 font-medium">
+                <Text className="text-textSecondaryBlue mt-2 font-medium">
                     Opening Tindahan Catalog...
                 </Text>
             </View>

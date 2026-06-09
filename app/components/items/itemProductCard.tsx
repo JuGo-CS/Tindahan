@@ -37,7 +37,7 @@ const ItemProductCard: React.FC<ItemProductCardProps> = ({
     const pcPrice = pcUnit ? pcUnit.type_price : 0;
 
     return (
-        <View className="flex-1 m-1.5 bg-white rounded-xl shadow-md border border-slate-100/60 flex-col justify-between">
+        <View className="flex-1 m-1.5 bg-white rounded-xl shadow-md flex-col justify-between">
             <View className="w-full aspect-square  rounded-t-xl items-center justify-center relative overflow-hidden">
                 <Image
                     source={{ uri: fullImageUrl }}
@@ -49,7 +49,7 @@ const ItemProductCard: React.FC<ItemProductCardProps> = ({
                 <TouchableOpacity
                     activeOpacity={0.7}
                     onPress={() => onAddPress?.(item)}
-                    className="absolute bottom-2 right-2 bg-emerald-500 w-14 h-14 sm:w-17 sm:h-17 md:w-19 md:h-19 rounded-full items-center justify-center shadow-sm z-10"
+                    className="absolute bottom-2 right-2 bg-primaryGreen w-14 h-14 sm:w-17 sm:h-17 md:w-19 md:h-19 rounded-full items-center justify-center shadow-sm z-10"
                 >
                     <Text className="text-white text-3xl font-bold mt-[-2px]">
                         +
@@ -61,7 +61,7 @@ const ItemProductCard: React.FC<ItemProductCardProps> = ({
             <View className="p-2 flex-col ">
                 {/* Brand Name: Big, Dark, Extremely Bold */}
                 <Text
-                    className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight"
+                    className="text-2xl sm:text-4xl font-black text-textBlue tracking-tight leading-tight"
                     numberOfLines={1}
                 >
                     {item.name}
@@ -69,24 +69,24 @@ const ItemProductCard: React.FC<ItemProductCardProps> = ({
 
                 {/* Variety: Smaller but still clearly bold/medium */}
                 <Text
-                    className="text-base sm:text-lg  font-bold text-slate-900 mt-0.5 leading-none"
+                    className="text-base sm:text-lg  font-bold text-textBlue mt-0.5 leading-none"
                     // numberOfLines={1}
                 >
                     {item.variant}
                 </Text>
 
                 {/* Size/Weight Label */}
-                <Text className="text-sm sm:text-base font-semibold text-slate-500">
+                <Text className="text-sm sm:text-base font-semibold text-textSecondaryBlue">
                     {item.weight}
                 </Text>
             </View>
 
             {/* 💰 Price Layout Tag */}
-            <View className="mt-3 mb-2 mx-1 pt-2 border-t border-slate-50 flex-row justify-between items-end px-1">
-                <Text className="text-2xl sm:text-4xl font-black text-emerald-600">
+            <View className="mt-3 mb-2 mx-1 pt-2 flex-row justify-between items-end px-1">
+                <Text className="text-2xl sm:text-4xl font-black text-primaryGreen">
                     ₱{parseFloat(pcPrice.toString()).toFixed(0)}
                 </Text>
-                <Text className="text-sm sm:text-base font-bold text-slate-400 ">
+                <Text className="text-sm sm:text-base font-bold text-textSecondaryBlue ">
                     / pc
                 </Text>
             </View>
