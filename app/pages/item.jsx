@@ -7,6 +7,7 @@ import { itemService } from '../../backend/pages/itemServices/fetchingItems';
 const ItemScreen = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         const fetchStoreCatalog = async () => {
@@ -24,6 +25,14 @@ const ItemScreen = () => {
         console.log('Item click registration active for:', selectedItem.name);
     };
 
+    const filteredItems = items.filter((item) => {
+        // Safe check: make sure the item has a name before trying to change case
+        const itemName = item.name ? item.name.toLowerCase() : '';
+        const searchString = searchQuery.toLowerCase();
+        
+        return itemName.includes(searchString);
+    });
+
     if (loading) {
         return (
             <View className="flex-1 justify-center items-center">
@@ -37,8 +46,8 @@ const ItemScreen = () => {
 
     return (
         <View className="flex-1">
-            <SearchBar />
-            <ItemGrid items={items} onAddItem={handleAddToCart} />
+            <SearchBar value={searchQuery} onChangeText={setSearchQuery} />
+            <ItemGrid items={filteredItems} onAddItem={handleAddToCart} />
         </View>
     );
 };

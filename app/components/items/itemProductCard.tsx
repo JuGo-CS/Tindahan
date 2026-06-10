@@ -38,7 +38,7 @@ const ItemProductCard: React.FC<ItemProductCardProps> = ({
     const hasContent = item.name || item.variant || item.weight;
 
     return (
-        <View className="flex-1 m-1.5 bg-white rounded-xl shadow-md flex-col justify-between min-h-[300px] sm:min-h-[320px]">
+        <View className="flex-1 m-1.5 bg-white rounded-xl shadow-md flex-col justify-between min-h-[290px] sm:min-h-[320px]">
             <View className="w-full aspect-square  rounded-t-xl items-center justify-center relative overflow-hidden">
                 <Image
                     source={{ uri: fullImageUrl }}
