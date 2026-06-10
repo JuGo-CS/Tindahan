@@ -1,4 +1,4 @@
-import { TextInput, View } from 'react-native';
+import { TextInput, View, Pressable } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const SearchBar = ({ value, onChangeText }) => {
@@ -14,6 +14,14 @@ const SearchBar = ({ value, onChangeText }) => {
                     value={value}
                     onChangeText={onChangeText}
                 />
+
+                <Pressable 
+                    onPress={() => onChangeText('')} // Passes empty string to clear state
+                    className="p-1 active:opacity-50"
+                >
+                    <Ionicons name="close-circle" size={28} color="#9CA3AF" />
+                </Pressable>
+
             </View>
         </View>
     );
