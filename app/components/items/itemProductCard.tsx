@@ -58,7 +58,7 @@ const ItemProductCard: React.FC<ItemProductCardProps> = ({
             </View>
 
             {/* 🏷️ Card Descriptions Content */}
-            <View className="p-2 flex-col ">
+            <View className="p-2 flex-col flex-1 justify-start min-h-[60px]">
                 {/* Brand Name: Big, Dark, Extremely Bold */}
                 <Text
                     className="text-2xl sm:text-4xl font-black text-textBlue tracking-tight leading-tight"
