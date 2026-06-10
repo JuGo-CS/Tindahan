@@ -1,25 +1,56 @@
-import React, { useEffect } from 'react';
-import { View, Text } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { Animated, View, Text } from 'react-native';
 
-const Toast = ({ message, visible, onHide, duration = 4000 }) => {
+const Toast = ({ message, visible, onHide, duration = 2500 }) => {
+    const fadeAnimation = useRef(new Animated.Value(0)).current;
+    const slideAnimation = useRef(new Animated.Value(-40)).current;
+
     useEffect(() => {
         if (visible) {
+            Animated.parallel([
+                Animated.timing(fadeAnimation, {
+                    toValue: 1,
+                    duration: 250,
+                    useNativeDriver: true,
+                }),
+                Animated.timing(slideAnimation, {
+                    toValue: 0,
+                    duration: 250,
+                    useNativeDriver: true,
+                }),
+            ]).start();
+
             const timer = setTimeout(() => {
-                onHide();
+                Animated.timing(fadeAnimation, {
+                    toValue: 0,
+                    duration: 300,
+                    useNativeDriver: true,
+                }).start(() => {
+                    onHide();
+                });
             }, duration);
+
             return () => clearTimeout(timer);
+        } else {
+            fadeAnimation.setValue(0);
+            slideAnimation.setValue(-40);
         }
-    }, [visible, duration, onHide]);
+    }, [visible]);
 
     if (!visible) return null;
-
     return (
-        <View className="absolute -top-14 left-4 right-4 z-50 items-center justify-center">
-            <View className="bg-[#1A3636] px-6 py-3 rounded-full shadow-lg border border-slate-700 flex-row items-center space-x-2">
-                <Text className="text-white text-base font-semibold tracking-wide text-center">
+        <View className="absolute -top-16 left-4 right-4 z-50 items-center justify-center pointer-events-none">
+            <Animated.View
+                style={{
+                    opacity: fadeAnimation,
+                    transform: [{ translateY: slideAnimation }],
+                }}
+                className="bg-[#1A3636] px-6 py-3 rounded-full shadow-lg border border-textBlue flex-row items-center"
+            >
+                <Text className="text-white text-lg font-bold tracking-wide text-center">
                     {message}
                 </Text>
-            </View>
+            </Animated.View>
         </View>
     );
 };
