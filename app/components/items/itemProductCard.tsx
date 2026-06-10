@@ -35,9 +35,10 @@ const ItemProductCard: React.FC<ItemProductCardProps> = ({
     // Grab individual retail price safely
     const pcUnit = item.item_units?.find((u) => u.unit_type === 'pc');
     const pcPrice = pcUnit ? pcUnit.type_price : 0;
+    const hasContent = item.name || item.variant || item.weight;
 
     return (
-        <View className="flex-1 m-1.5 bg-white rounded-xl shadow-md flex-col justify-between">
+        <View className="flex-1 m-1.5 bg-white rounded-xl shadow-md flex-col justify-between min-h-[300px] sm:min-h-[320px]">
             <View className="w-full aspect-square  rounded-t-xl items-center justify-center relative overflow-hidden">
                 <Image
                     source={{ uri: fullImageUrl }}
@@ -58,7 +59,7 @@ const ItemProductCard: React.FC<ItemProductCardProps> = ({
             </View>
 
             {/* 🏷️ Card Descriptions Content */}
-            <View className="p-2 flex-col flex-1 justify-start min-h-[60px]">
+            <View className={`p-2 flex-col flex-1 justify-start ${hasContent ? 'min-h-[60px]' : 'h-12'}`}>
                 {/* Brand Name: Big, Dark, Extremely Bold */}
                 <Text
                     className="text-2xl sm:text-4xl font-black text-textBlue tracking-tight leading-tight"
