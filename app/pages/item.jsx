@@ -67,7 +67,18 @@ const ItemScreen = () => {
                 onClearSearch={() => triggerToast('Search cleared!')}
             />
 
-            <ItemGrid items={filteredItems} onAddItem={handleAddToCart} />
+            {filteredItems.length === 0 ? (
+                <View className="flex-1 justify-center items-center px-8 pb-32">
+                    <Text className="text-textBlue text-3xl font-bold text-center mb-1">
+                        Walang yan sa listahan.
+                    </Text>
+                    <Text className="text-textSecondaryBlue text-lg text-center">
+                        Paki tignan ang spelling o di kaya hindi pa ito naidagdag sa database.
+                    </Text>
+                </View>
+            ) : (
+                <ItemGrid items={filteredItems} onAddItem={handleAddToCart} />
+            )}
         </View>
     );
 };
