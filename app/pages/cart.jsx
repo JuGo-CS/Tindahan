@@ -1,10 +1,9 @@
 import { View, Text, ScrollView } from 'react-native';
-import Summation from '../components/cart/summation.jsx'; // Adjust to your real path
+import Summation from '../components/cart/summation.jsx';
 
 const CartScreen = () => {
     return (
         <View className="flex-1 w-full justify-between bg-backgroundWhite mb-28 pb-3">
-            {/* Scrollable item list space above */}
             <ScrollView className="flex-1 px-4 pt-4">
                 <Text className="font-semibold text-3xl text-slate-500">
                     This is Cart Page.

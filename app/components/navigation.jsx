@@ -18,6 +18,7 @@ const Navigation = () => {
             <Pressable
                 className="items-center justify-center flex-1"
                 onPress={() => router.push('/pages/item')}
+                disabled={isActive('/pages/item')}
             >
                 <Ionicons
                     name="home-outline"
@@ -35,6 +36,7 @@ const Navigation = () => {
             <Pressable
                 className="items-center justify-center flex-1"
                 onPress={() => router.push('/pages/cart')}
+                disabled={isActive('/pages/cart')}
             >
                 <Ionicons
                     name="cart-outline"
@@ -52,6 +54,7 @@ const Navigation = () => {
             <Pressable
                 className="items-center justify-center flex-1"
                 onPress={() => router.push('/pages/utang')}
+                disabled={isActive('/pages/utang')}
             >
                 <MaterialCommunityIcons
                     name="paperclip"
@@ -69,6 +72,7 @@ const Navigation = () => {
             <Pressable
                 className="items-center justify-center flex-1"
                 onPress={() => router.push('/pages/log')}
+                disabled={isActive('/pages/log')}
             >
                 <MaterialCommunityIcons
                     name="clipboard-text-outline"
