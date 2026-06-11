@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { View, ActivityIndicator, Text } from 'react-native';
-import SearchBar from '../components/items/searchBar.jsx';
-import ItemGrid from '../components/items/itemGrid';
-import Toast from '../includes/toast.jsx';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, Text, View } from 'react-native';
 import { itemService } from '../../backend/pages/itemServices/fetchingItems';
+import ItemGrid from '../components/items/itemGrid';
+import SearchBar from '../components/items/searchBar.jsx';
+import Toast from '../includes/toast.jsx';
 
 const ItemScreen = () => {
     const [items, setItems] = useState([]);
@@ -73,7 +73,8 @@ const ItemScreen = () => {
                         Walang yan sa listahan.
                     </Text>
                     <Text className="text-textSecondaryBlue text-lg text-center">
-                        Paki tignan ang spelling o di kaya hindi pa ito naidagdag sa database.
+                        Paki tignan ang spelling o di kaya hindi pa ito
+                        naidagdag sa database.
                     </Text>
                 </View>
             ) : (
