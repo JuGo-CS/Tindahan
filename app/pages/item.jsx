@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { View, ActivityIndicator, Text } from 'react-native';
-import SearchBar from '../components/items/searchBar.jsx';
-import ItemGrid from '../components/items/itemGrid';
-import Toast from '../includes/toast.jsx';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, Text, View } from 'react-native';
 import { itemService } from '../../backend/pages/itemServices/fetchingItems';
+import ItemGrid from '../components/items/itemGrid';
+import SearchBar from '../components/items/searchBar.jsx';
+import Toast from '../includes/toast.jsx';
 
 const ItemScreen = () => {
     const [items, setItems] = useState([]);
@@ -64,10 +64,22 @@ const ItemScreen = () => {
             <SearchBar
                 value={searchQuery}
                 onChangeText={setSearchQuery}
-                onClearSearch={() => triggerToast('Search cleared!')}
+                onClearSearch={() => triggerToast('Search box are cleared!')}
             />
 
-            <ItemGrid items={filteredItems} onAddItem={handleAddToCart} />
+            {filteredItems.length === 0 ? (
+                <View className="flex-1 justify-center items-center px-8 pb-32">
+                    <Text className="text-textBlue text-3xl font-bold text-center mb-1">
+                        Walang yan sa listahan.
+                    </Text>
+                    <Text className="text-textSecondaryBlue text-lg text-center">
+                        Paki tignan ang spelling o di kaya hindi pa ito
+                        naidagdag sa database.
+                    </Text>
+                </View>
+            ) : (
+                <ItemGrid items={filteredItems} onAddItem={handleAddToCart} />
+            )}
         </View>
     );
 };

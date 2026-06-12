@@ -22,12 +22,18 @@ const SearchBar = ({ value, onChangeText, onClearSearch }) => {
                     onChangeText={onChangeText}
                 />
 
-                <Pressable
-                    onPress={handleClearInput}
-                    className="p-1 active:opacity-50"
-                >
-                    <Ionicons name="close-circle" size={28} color="#9CA3AF" />
-                </Pressable>
+                {value.length > 0 && (
+                    <Pressable
+                        onPress={handleClearInput}
+                        className="p-1 active:opacity-50"
+                    >
+                        <Ionicons
+                            name="close-circle"
+                            size={28}
+                            color="#9CA3AF"
+                        />
+                    </Pressable>
+                )}
             </View>
         </View>
     );
