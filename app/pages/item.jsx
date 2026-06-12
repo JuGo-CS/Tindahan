@@ -61,11 +61,11 @@ const ItemScreen = () => {
                 onHide={() => setToastVisible(false)}
             />
 
-            <SearchBar
+            {/* <SearchBar
                 value={searchQuery}
                 onChangeText={setSearchQuery}
                 onClearSearch={() => triggerToast('Search box are cleared!')}
-            />
+            /> */}
 
             {filteredItems.length === 0 ? (
                 <View className="flex-1 justify-center items-center px-8 pb-32">
