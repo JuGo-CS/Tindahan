@@ -64,7 +64,7 @@ const ItemScreen = () => {
             <SearchBar
                 value={searchQuery}
                 onChangeText={setSearchQuery}
-                onClearSearch={() => triggerToast('Search cleared!')}
+                onClearSearch={() => triggerToast('Search box are cleared!')}
             />
 
             {filteredItems.length === 0 ? (
