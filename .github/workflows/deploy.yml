@@ -37,4 +37,4 @@ jobs:
                   EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
                   EXPO_PUBLIC_SUPABASE_URL: 'https://latvgcqifuzshqqztlti.supabase.co'
                   EXPO_PUBLIC_SUPABASE_ANON_KEY: 'sb_publishable_EYFTE-MzwQSTNzixLEZzJQ_oBuDQ7r8'
-              run: eas update --branch preview --channel preview --auto
+              run: eas update --channel preview
