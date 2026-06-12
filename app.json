@@ -51,6 +51,12 @@
                 "projectId": "43425b75-5094-4958-9bfd-1f00b0e54215"
             }
         },
+        "runtimeVersion": {
+            "policy": "appVersion"
+        },
+        "updates": {
+            "url": "https://u.expo.dev/43425b75-5094-4958-9bfd-1f00b0e54215"
+        },
         "owner": "ju_go"
     }
 }
