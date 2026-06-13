@@ -30,7 +30,9 @@ const ItemProductCard: React.FC<ItemProductCardProps> = ({
     // Safe Cloudinary image builder fallback if item_picture string is completely empty
     const fullImageUrl = item.item_picture
         ? `${CLOUDINARY_BASE_URL}${item.item_picture}`
-        : 'https://via.placeholder.com/150';
+        : `${CLOUDINARY_BASE_URL}v1781356002/image_holder.webp`;
+
+        https://res.cloudinary.com/djssijeqe/image/upload/q_auto/f_auto/v1781356002/image_holder.webp
 
     // Grab individual retail price safely
     const pcUnit = item.item_units?.find((u) => u.unit_type === 'pc');
