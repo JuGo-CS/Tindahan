@@ -32,8 +32,6 @@ const ItemProductCard: React.FC<ItemProductCardProps> = ({
         ? `${CLOUDINARY_BASE_URL}${item.item_picture}`
         : `${CLOUDINARY_BASE_URL}v1781356002/image_holder.webp`;
 
-        https://res.cloudinary.com/djssijeqe/image/upload/q_auto/f_auto/v1781356002/image_holder.webp
-
     // Grab individual retail price safely
     const pcUnit = item.item_units?.find((u) => u.unit_type === 'pc');
     const pcPrice = pcUnit ? pcUnit.type_price : 0;
