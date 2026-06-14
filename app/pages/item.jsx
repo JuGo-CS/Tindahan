@@ -4,6 +4,7 @@ import { itemService } from '../../backend/pages/itemServices/fetchingItems';
 import ItemGrid from '../components/items/itemGrid';
 import SearchBar from '../components/items/searchBar.jsx';
 import Toast from '../includes/toast.jsx';
+import { useItemContext } from '../components/cart/itemsInCart.jsx'
 
 const ItemScreen = () => {
     const [items, setItems] = useState([]);
@@ -12,6 +13,8 @@ const ItemScreen = () => {
 
     const [toastMessage, setToastMessage] = useState('');
     const [toastVisible, setToastVisible] = useState(false);
+
+    const { addItemToCart, getItemLists } = useItemContext();
 
     useEffect(() => {
         const fetchStoreCatalog = async () => {
@@ -31,7 +34,12 @@ const ItemScreen = () => {
     };
 
     const handleAddToCart = (selectedItem) => {
-        console.log('Item click registration active for:', selectedItem.name);
+        addItemToCart(selectedItem);
+        const allItems = getItemLists();
+        
+        allItems.map((item, index) => {
+            console.log(`Item #${index + 1} is: ${item.name}`);
+        });
     };
 
     const filteredItems = items.filter((item) => {
