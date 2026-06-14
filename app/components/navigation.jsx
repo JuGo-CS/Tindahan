@@ -2,10 +2,14 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Pressable, Text, View } from 'react-native';
 import { useRouter, usePathname } from 'expo-router';
+import { useItemContext } from '../../backend/pages/cartServices/itemsInCart';
+import { useState } from 'react';
 
 const Navigation = () => {
     const router = useRouter();
     const pathname = usePathname();
+    const { totalItemCounter } = useItemContext() || {};
+    const currentCount = totalItemCounter ? totalItemCounter() : 0;
 
     const isActive = (route) => pathname === route;
     const getIconColor = (route) => (isActive(route) ? '#10B981' : '#1A3636');
@@ -38,6 +42,12 @@ const Navigation = () => {
                 onPress={() => router.push('/pages/cart')}
                 disabled={isActive('/pages/cart')}
             >
+                <View className="absolute -top-2 right-3 bg-primaryGreen rounded-full h-6 w-6 flex items-center justify-center">
+                    <Text className="text-medium font-medium text-white textAlignVertical-center">
+                        {currentCount}
+                    </Text>
+                </View>
+
                 <Ionicons
                     name="cart-outline"
                     size={26}

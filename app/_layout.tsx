@@ -1,9 +1,9 @@
 import { Slot } from 'expo-router';
 import { View } from 'react-native';
+import { ItemsCart } from '../backend/pages/cartServices/itemsInCart.js';
 import '../global.css';
 import Header from './components/header.jsx';
 import Navigation from './components/navigation.jsx';
-import { ItemsCart } from './components/cart/itemsInCart.jsx'
 
 export default function RootLayout() {
     return (

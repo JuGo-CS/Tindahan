@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
+import { useItemContext } from '../../backend/pages/cartServices/itemsInCart.js';
 import { itemService } from '../../backend/pages/itemServices/fetchingItems';
 import ItemGrid from '../components/items/itemGrid';
 import SearchBar from '../components/items/searchBar.jsx';
 import Toast from '../includes/toast.jsx';
-import { useItemContext } from '../components/cart/itemsInCart.jsx'
 
 const ItemScreen = () => {
     const [items, setItems] = useState([]);
@@ -36,7 +36,7 @@ const ItemScreen = () => {
     const handleAddToCart = (selectedItem) => {
         addItemToCart(selectedItem);
         const allItems = getItemLists();
-        
+
         allItems.map((item, index) => {
             console.log(`Item #${index + 1} is: ${item.name}`);
         });
