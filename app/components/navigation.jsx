@@ -3,12 +3,11 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Pressable, Text, View } from 'react-native';
 import { useRouter, usePathname } from 'expo-router';
 import { useItemContext } from '../../backend/pages/cartServices/itemsInCart';
-import { useState } from 'react';
 
 const Navigation = () => {
     const router = useRouter();
     const pathname = usePathname();
-    const { totalItemCounter } = useItemContext() || {};
+    const { totalItemCounter } = useItemContext();
     const currentCount = totalItemCounter ? totalItemCounter() : 0;
 
     const isActive = (route) => pathname === route;
