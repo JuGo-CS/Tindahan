@@ -1,6 +1,7 @@
 import { View, Text, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useState } from 'react';
 import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
+import ModalButtons from './modalButtons.jsx';
 
 const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
     const itemDeets = GetItemDetails(item);
@@ -13,9 +14,9 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
 
                 <TouchableOpacity
                     onPress={() => onClose()}
-                    className="absolute h-16 w-16 rounded-full  bg-primaryGreen z-50 flex justify-center items-center top-0 right-0 border border-white "
+                    className="absolute h-9 w-9 rounded-full  bg-activeOrange z-50 flex justify-center items-center top-0 right-0 border border-white "
                 >
-                    <Text className="text-white font-black text-2xl">
+                    <Text className="text-white font-black text-xl">
                         X
                     </Text>
                     
@@ -50,13 +51,15 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
                 </View>
 
                 {/* 💰 Price Layout Tag */}
-                <View className="-mt-6 mb-2 mx-1 flex-row  items-end px-1">
+                <View className="-mt-2 mb-2 mx-1 flex-row  items-end px-1">
                     <Text className="text-3xl font-black text-primaryGreen">
                         ₱{parseFloat(itemDeets.itemPrice.toString()).toFixed(0)} 
                     </Text>
                     <Text className="text-3xl font-bold text-textSecondaryBlue "> / pc
                     </Text>
                 </View>
+
+                <ModalButtons />
             </View>
         </View>
     );
