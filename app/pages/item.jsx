@@ -41,13 +41,6 @@ const ItemScreen = () => {
     const handleAddToCart = (selectedItem) => {
         setSelectedItem(selectedItem);
         setModalVisible(true);
-
-        // addItemToCart(selectedItem);
-        // const allItems = getItemLists();
-
-        // allItems.map((item, index) => {
-        //     console.log(`Item #${index + 1} is: ${item.name}`);
-        // });
     };
 
     const filteredItems = items.filter((item) => {

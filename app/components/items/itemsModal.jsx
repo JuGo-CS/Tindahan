@@ -5,10 +5,11 @@ import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.
 const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
     const itemDeets = GetItemDetails(item);
     const [imageLoading, setImageLoading] = useState(false);
+    const fullItemName = `${item.name} ${item.variant} (${item.weight})`;
 
     return (
-        <View className="absolute top-0 right-0 left-0 bottom-0 flex justify-center items-center z-50 bg-black/50">
-            <View className="absolute flex justify-center items-center top-12 right-10 left-10 bottom-40 bg-white rounded-xl">
+        <View className="absolute top-0 right-0 left-0 bottom-0 z-50 bg-black/50">
+            <View className="absolute  top-12 right-10 left-10 bottom-40 bg-white rounded-xl">
 
                 <TouchableOpacity
                     onPress={() => onClose()}
@@ -37,24 +38,14 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
 
                 {/* 🏷️ Card Descriptions Content */}
                 <View
-                    className={`p-2 flex-col flex-1 justify-start ${itemDeets.hasContent ? 'min-h-[60px]' : 'h-12'}`}
+                    className={`p-2 flex-col flex-1 justify-start min-h-[60px]`}
                 >
                     {/* Brand Name */}
                     <Text
-                        className="text-2xl font-black text-textBlue tracking-tight leading-tight"
-                        numberOfLines={1}
+                        className="text-3xl font-black text-textBlue tracking-tight leading-tight"
+                        numberOfLines={2}
                     >
-                        {item.name}
-                    </Text>
-
-                    {/* Variety */}
-                    <Text className="text-base font-bold text-textBlue mt-0.5 leading-none">
-                        {item.variant}
-                    </Text>
-
-                    {/* Size/Weight Label */}
-                    <Text className="text-sm font-semibold text-textSecondaryBlue">
-                        {item.weight}
+                        {fullItemName}
                     </Text>
                 </View>
 
