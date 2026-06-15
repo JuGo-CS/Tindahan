@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
+import {
+    View,
+    Text,
+    Image,
+    TouchableOpacity,
+    ActivityIndicator,
+} from 'react-native';
 import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
 
 const ItemProductCard = ({ item, onAddPress }) => {
@@ -9,12 +15,13 @@ const ItemProductCard = ({ item, onAddPress }) => {
     return (
         <View className="flex-1 m-1.5 bg-white rounded-xl shadow-md flex-col justify-betweepcUnit min-h-[290px]">
             <View className="w-full aspect-square rounded-t-xl items-center justify-center relative overflow-hidden">
-
-                {imageLoading && 
-                    <ActivityIndicator 
-                        className="absolute z-10" size="large" color="#10b981"
+                {imageLoading && (
+                    <ActivityIndicator
+                        className="absolute z-10"
+                        size="large"
+                        color="#10b981"
                     />
-                }
+                )}
 
                 <Image
                     source={{ uri: itemDeets.imageUrl }}

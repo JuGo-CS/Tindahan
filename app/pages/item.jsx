@@ -16,7 +16,7 @@ const ItemScreen = () => {
     const [toastVisible, setToastVisible] = useState(false);
 
     const [selectedItem, setSelectedItem] = useState(null);
-    const [modalVisible, setModalVisible] = useState(false)
+    const [modalVisible, setModalVisible] = useState(false);
     const [quantity, setQuantity] = useState(1);
 
     const { addItemToCart, getItemLists } = useItemContext();
@@ -64,7 +64,6 @@ const ItemScreen = () => {
 
     return (
         <View className="flex-1">
-
             <Toast
                 message={toastMessage}
                 visible={toastVisible}
@@ -77,14 +76,14 @@ const ItemScreen = () => {
                 onClearSearch={() => triggerToast('Search box are cleared!')}
             />
 
-            {modalVisible &&
+            {modalVisible && (
                 <ItemsModal
-                    item = {selectedItem}
-                    setItem = {setSelectedItem}
-                    setQuantity = {setQuantity}
+                    item={selectedItem}
+                    setItem={setSelectedItem}
+                    setQuantity={setQuantity}
                     onClose={() => setModalVisible(false)}
                 />
-            }
+            )}
 
             {filteredItems.length === 0 ? (
                 <View className="flex-1 justify-center items-center px-8 pb-32">
