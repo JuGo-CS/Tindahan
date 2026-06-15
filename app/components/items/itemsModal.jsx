@@ -9,7 +9,7 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
 
     return (
         <View className="absolute top-0 right-0 left-0 bottom-0 z-50 bg-black/50">
-            <View className="absolute  top-12 right-10 left-10 bottom-40 bg-white rounded-xl">
+            <View className="absolute  top-7 right-10 left-10 bottom-20 bg-white rounded-xl">
 
                 <TouchableOpacity
                     onPress={() => onClose()}
@@ -38,7 +38,7 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
 
                 {/* 🏷️ Card Descriptions Content */}
                 <View
-                    className={`p-2 flex-col flex-1 justify-start min-h-[60px]`}
+                    className={`p-2 flex-col justify-start min-h-[60px]`}
                 >
                     {/* Brand Name */}
                     <Text
@@ -50,12 +50,11 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
                 </View>
 
                 {/* 💰 Price Layout Tag */}
-                <View className="mt-3 mb-2 mx-1 pt-2 flex-row justify-between items-end px-1">
+                <View className="-mt-6 mb-2 mx-1 flex-row  items-end px-1">
                     <Text className="text-3xl font-black text-primaryGreen">
-                        ₱{parseFloat(itemDeets.itemPrice.toString()).toFixed(0)}
+                        ₱{parseFloat(itemDeets.itemPrice.toString()).toFixed(0)} 
                     </Text>
-                    <Text className="text-sm font-bold text-textSecondaryBlue ">
-                        / pc
+                    <Text className="text-3xl font-bold text-textSecondaryBlue "> / pc
                     </Text>
                 </View>
             </View>
