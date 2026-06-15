@@ -46,7 +46,7 @@ const Navigation = () => {
                 <View
                     className="absolute -top-2 ${badgeRightClass} bg-primaryGreen rounded-full h-6 w-6 flex items-center justify-center"
                     style={{
-                        right: width <= 380 ? 11 : width <= 450 ? 17 : 28,
+                        right: width <= 380 ? 8 : width <= 600 ? 30 : 60,
                     }}
                 >
                     <Text className="text-medium font-medium text-white textAlignVertical-center">

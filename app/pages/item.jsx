@@ -5,6 +5,7 @@ import { itemService } from '../../backend/pages/itemServices/fetchingItems';
 import ItemGrid from '../components/items/itemGrid';
 import SearchBar from '../components/items/searchBar.jsx';
 import Toast from '../includes/toast.jsx';
+import ItemsModal from '../components/items/itemsModal.jsx';
 
 const ItemScreen = () => {
     const [items, setItems] = useState([]);
@@ -63,6 +64,8 @@ const ItemScreen = () => {
 
     return (
         <View className="flex-1">
+            <ItemsModal />
+
             <Toast
                 message={toastMessage}
                 visible={toastVisible}

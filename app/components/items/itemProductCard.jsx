@@ -1,26 +1,16 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
 
 const ItemProductCard = ({ item, onAddPress }) => {
-    const CLOUDINARY_BASE_URL =
-        'https://res.cloudinary.com/djssijeqe/image/upload/q_auto,f_auto/';
-
-    // Safe Cloudinary image builder fallback if item_picture string is completely empty
-    const fullImageUrl = item.item_picture
-        ? `${CLOUDINARY_BASE_URL}${item.item_picture}`
-        : `${CLOUDINARY_BASE_URL}v1781356002/image_holder.webp`;
-
-    // Grab individual retail price safely
-    const pcUnit = item.item_units?.find((u) => u.unit_type === 'pc');
-    const pcPrice = pcUnit ? pcUnit.type_price : 0;
-    const hasContent = item.name || item.variant || item.weight;
+    const itemDeets = GetItemDetails(item);
 
     return (
-        <View className="flex-1 m-1.5 bg-white rounded-xl shadow-md flex-col justify-between min-h-[290px]">
+        <View className="flex-1 m-1.5 bg-white rounded-xl shadow-md flex-col justify-betweepcUnit min-h-[290px]">
             <View className="w-full aspect-square rounded-t-xl items-center justify-center relative overflow-hidden">
                 <Image
-                    source={{ uri: fullImageUrl }}
-                    style={{ width: '100%', height: '100%' }} 
+                    source={{ uri: itemDeets.imageUrl }}
+                    style={{ width: '100%', height: '100%' }}
                     resizeMode="cover"
                 />
 
@@ -38,7 +28,7 @@ const ItemProductCard = ({ item, onAddPress }) => {
 
             {/* 🏷️ Card Descriptions Content */}
             <View
-                className={`p-2 flex-col flex-1 justify-start ${hasContent ? 'min-h-[60px]' : 'h-12'}`}
+                className={`p-2 flex-col flex-1 justify-start ${itemDeets.hasContent ? 'min-h-[60px]' : 'h-12'}`}
             >
                 {/* Brand Name */}
                 <Text
@@ -61,8 +51,8 @@ const ItemProductCard = ({ item, onAddPress }) => {
 
             {/* 💰 Price Layout Tag */}
             <View className="mt-3 mb-2 mx-1 pt-2 flex-row justify-between items-end px-1">
-                <Text className="text-2xl font-black text-primaryGreen">
-                    ₱{parseFloat(pcPrice.toString()).toFixed(0)}
+                <Text className="text-3xl font-black text-primaryGreen">
+                    ₱{parseFloat(itemDeets.itemPrice.toString()).toFixed(0)}
                 </Text>
                 <Text className="text-sm font-bold text-textSecondaryBlue ">
                     / pc
