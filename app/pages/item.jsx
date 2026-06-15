@@ -15,6 +15,10 @@ const ItemScreen = () => {
     const [toastMessage, setToastMessage] = useState('');
     const [toastVisible, setToastVisible] = useState(false);
 
+    const [selectedItem, setSelectedItem] = useState(null);
+    const [modalVisible, setModalVisible] = useState(false)
+    const [quantity, setQuantity] = useState(1);
+
     const { addItemToCart, getItemLists } = useItemContext();
 
     useEffect(() => {
@@ -35,12 +39,15 @@ const ItemScreen = () => {
     };
 
     const handleAddToCart = (selectedItem) => {
-        addItemToCart(selectedItem);
-        const allItems = getItemLists();
+        setSelectedItem(selectedItem);
+        setModalVisible(true);
 
-        allItems.map((item, index) => {
-            console.log(`Item #${index + 1} is: ${item.name}`);
-        });
+        // addItemToCart(selectedItem);
+        // const allItems = getItemLists();
+
+        // allItems.map((item, index) => {
+        //     console.log(`Item #${index + 1} is: ${item.name}`);
+        // });
     };
 
     const filteredItems = items.filter((item) => {
@@ -64,7 +71,6 @@ const ItemScreen = () => {
 
     return (
         <View className="flex-1">
-            <ItemsModal />
 
             <Toast
                 message={toastMessage}
@@ -77,6 +83,15 @@ const ItemScreen = () => {
                 onChangeText={setSearchQuery}
                 onClearSearch={() => triggerToast('Search box are cleared!')}
             />
+
+            {modalVisible &&
+                <ItemsModal
+                    item = {selectedItem}
+                    setItem = {setSelectedItem}
+                    setQuantity = {setQuantity}
+                    onClose={() => setModalVisible(false)}
+                />
+            }
 
             {filteredItems.length === 0 ? (
                 <View className="flex-1 justify-center items-center px-8 pb-32">
