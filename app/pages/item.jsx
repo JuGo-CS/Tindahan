@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
+import { useItemContext } from '../../backend/pages/cartServices/itemsInCart.js';
 import { itemService } from '../../backend/pages/itemServices/fetchingItems';
 import ItemGrid from '../components/items/itemGrid';
 import SearchBar from '../components/items/searchBar.jsx';
 import Toast from '../includes/toast.jsx';
+import ItemsModal from '../components/items/itemsModal.jsx';
 
 const ItemScreen = () => {
     const [items, setItems] = useState([]);
@@ -12,6 +14,12 @@ const ItemScreen = () => {
 
     const [toastMessage, setToastMessage] = useState('');
     const [toastVisible, setToastVisible] = useState(false);
+
+    const [selectedItem, setSelectedItem] = useState(null);
+    const [modalVisible, setModalVisible] = useState(false);
+    const [quantity, setQuantity] = useState(1);
+
+    const { addItemToCart, getItemLists } = useItemContext();
 
     useEffect(() => {
         const fetchStoreCatalog = async () => {
@@ -31,7 +39,8 @@ const ItemScreen = () => {
     };
 
     const handleAddToCart = (selectedItem) => {
-        console.log('Item click registration active for:', selectedItem.name);
+        setSelectedItem(selectedItem);
+        setModalVisible(true);
     };
 
     const filteredItems = items.filter((item) => {
@@ -66,6 +75,15 @@ const ItemScreen = () => {
                 onChangeText={setSearchQuery}
                 onClearSearch={() => triggerToast('Search box are cleared!')}
             />
+
+            {modalVisible && (
+                <ItemsModal
+                    item={selectedItem}
+                    setItem={setSelectedItem}
+                    setQuantity={setQuantity}
+                    onClose={() => setModalVisible(false)}
+                />
+            )}
 
             {filteredItems.length === 0 ? (
                 <View className="flex-1 justify-center items-center px-8 pb-32">

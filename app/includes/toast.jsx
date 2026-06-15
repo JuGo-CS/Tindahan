@@ -15,7 +15,7 @@ const Toast = ({ message, visible, onHide, duration = 2500 }) => {
                 }),
                 Animated.timing(slideAnimation, {
                     toValue: 0,
-                    duration: 250,
+                    duration: 350,
                     useNativeDriver: true,
                 }),
             ]).start();

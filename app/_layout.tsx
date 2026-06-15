@@ -1,5 +1,6 @@
 import { Slot } from 'expo-router';
 import { View } from 'react-native';
+import { ItemsCart } from '../backend/pages/cartServices/itemsInCart.js';
 import '../global.css';
 import Header from './components/header.jsx';
 import Navigation from './components/navigation.jsx';
@@ -9,11 +10,13 @@ export default function RootLayout() {
         <View className="flex-1 bg-backgroundWhite">
             <Header />
 
-            <View className="flex-1">
-                <Slot />
-            </View>
+            <ItemsCart>
+                <View className="flex-1">
+                    <Slot />
+                </View>
 
-            <Navigation />
+                <Navigation />
+            </ItemsCart>
         </View>
     );
 }
