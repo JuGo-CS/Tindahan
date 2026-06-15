@@ -1,17 +1,27 @@
-import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
 
 const ItemProductCard = ({ item, onAddPress }) => {
     const itemDeets = GetItemDetails(item);
+    const [imageLoading, setImageLoading] = useState(false);
 
     return (
         <View className="flex-1 m-1.5 bg-white rounded-xl shadow-md flex-col justify-betweepcUnit min-h-[290px]">
             <View className="w-full aspect-square rounded-t-xl items-center justify-center relative overflow-hidden">
+
+                {imageLoading && 
+                    <ActivityIndicator 
+                        className="absolute z-10" size="large" color="#10b981"
+                    />
+                }
+
                 <Image
                     source={{ uri: itemDeets.imageUrl }}
                     style={{ width: '100%', height: '100%' }}
                     resizeMode="cover"
+                    onLoadStart={() => setImageLoading(true)}
+                    onLoadEnd={() => setImageLoading(false)}
                 />
 
                 {/* ➕ Floating Action Add Button */}
