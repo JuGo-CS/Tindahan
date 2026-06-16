@@ -38,7 +38,7 @@ const ItemScreen = () => {
         setToastVisible(true);
     };
 
-    const handleAddToCart = (selectedItem) => {
+    const handleItemModal = (selectedItem) => {
         setSelectedItem(selectedItem);
         setModalVisible(true);
     };
@@ -82,6 +82,7 @@ const ItemScreen = () => {
                     setItem={setSelectedItem}
                     setQuantity={setQuantity}
                     onClose={() => setModalVisible(false)}
+                    addItemToCart={addItemToCart}
                 />
             )}
 
@@ -96,7 +97,10 @@ const ItemScreen = () => {
                     </Text>
                 </View>
             ) : (
-                <ItemGrid items={filteredItems} onAddItem={handleAddToCart} />
+                <ItemGrid
+                    items={filteredItems}
+                    onHandleModal={handleItemModal}
+                />
             )}
         </View>
     );

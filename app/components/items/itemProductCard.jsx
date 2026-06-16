@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
 
-const ItemProductCard = ({ item, onAddPress }) => {
+const ItemProductCard = ({ item, onHandleModal }) => {
     const itemDeets = GetItemDetails(item);
     const [imageLoading, setImageLoading] = useState(false);
 
@@ -34,7 +34,7 @@ const ItemProductCard = ({ item, onAddPress }) => {
                 {/* ➕ Floating Action Add Button */}
                 <TouchableOpacity
                     activeOpacity={0.7}
-                    onPress={() => onAddPress?.(item)}
+                    onPress={() => onHandleModal?.(item)}
                     className="absolute bottom-2 right-2 bg-primaryGreen w-14 h-14 rounded-full items-center justify-center shadow-sm z-10"
                 >
                     <Text className="text-white text-3xl font-bold mt-[-2px]">

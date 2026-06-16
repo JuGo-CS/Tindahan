@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
 import ModalButtons from './modalButtons.jsx';
 
-const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
+const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
     const itemDeets = GetItemDetails(item);
     const [imageLoading, setImageLoading] = useState(false);
     const fullItemName = `${item.name} ${item.variant} (${item.weight})`;
@@ -64,7 +64,11 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
                     </Text>
                 </View>
 
-                <ModalButtons onClose={onClose}/>
+                <ModalButtons
+                    onClose={onClose}
+                    item={item}
+                    addItemToCart={addItemToCart}
+                />
             </View>
         </View>
     );
