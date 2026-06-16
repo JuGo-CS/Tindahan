@@ -16,7 +16,7 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
 
     return (
         <View className="absolute top-0 right-0 left-0 bottom-0 z-50 bg-black/50">
-            <View className="absolute  top-7 right-10 left-10 bottom-20 bg-white rounded-xl">
+            <View className="absolute top-7 right-10 left-10 bottom-20 bg-white rounded-xl">
                 <TouchableOpacity
                     onPress={() => onClose()}
                     className="absolute h-9 w-9 rounded-full  bg-activeOrange z-50 flex justify-center items-center top-0 right-0 border border-white "
@@ -64,7 +64,7 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose }) => {
                     </Text>
                 </View>
 
-                <ModalButtons />
+                <ModalButtons onClose={onClose}/>
             </View>
         </View>
     );
