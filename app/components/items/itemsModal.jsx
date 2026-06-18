@@ -8,6 +8,8 @@ import {
 import { useState } from 'react';
 import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
 import ModalButtons from './modalButtons.jsx';
+import Total from '../../includes/total.jsx';
+import QuantityCounter from '../../includes/quantityCounter.jsx';
 
 const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
     const itemDeets = GetItemDetails(item);
@@ -17,6 +19,8 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
     return (
         <View className="absolute top-0 right-0 left-0 bottom-0 z-50 bg-black/50">
             <View className="absolute top-7 right-10 left-10 bottom-20 bg-white rounded-xl">
+
+                {/* This part is for the X button on the top right (exiting the modal when adding an item to the cart) */}
                 <TouchableOpacity
                     onPress={() => onClose()}
                     className="absolute h-9 w-9 rounded-full  bg-activeOrange z-50 flex justify-center items-center top-0 right-0 border border-white "
@@ -24,6 +28,7 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                     <Text className="text-white font-black text-xl">X</Text>
                 </TouchableOpacity>
 
+                {/* the photo on the modal */}
                 <View className="w-full aspect-square rounded-t-xl items-center justify-center relative overflow-hidden">
                     {imageLoading && (
                         <ActivityIndicator
@@ -63,6 +68,12 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                         / pc
                     </Text>
                 </View>
+                
+                <View className="px-2 bottom-0">
+                    <Total />
+                </View>
+
+                <QuantityCounter />
 
                 <ModalButtons
                     onClose={onClose}
