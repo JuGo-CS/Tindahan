@@ -49,7 +49,9 @@ const ItemScreen = () => {
         const variantName = item.variant ? item.variant.toLowerCase() : '';
         const searchString = searchQuery.toLowerCase();
 
-        const searchedItem = itemName.includes(searchString) || variantName.includes(searchString);
+        const searchedItem =
+            itemName.includes(searchString) ||
+            variantName.includes(searchString);
 
         return searchedItem;
     });

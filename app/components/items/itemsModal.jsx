@@ -19,7 +19,6 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
     return (
         <View className="absolute top-0 right-0 left-0 bottom-0 z-50 bg-black/50">
             <View className="absolute top-7 right-10 left-10 bottom-20 bg-white rounded-xl">
-
                 {/* This part is for the X button on the top right (exiting the modal when adding an item to the cart) */}
                 <TouchableOpacity
                     onPress={() => onClose()}
@@ -68,7 +67,7 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                         / pc
                     </Text>
                 </View>
-                
+
                 <View className="px-2 bottom-0">
                     <Total />
                 </View>

@@ -19,7 +19,6 @@ const ModalButtons = ({ onClose, item, addItemToCart }) => {
             >
                 <Text className="font-black text-2xl text-white">Add Item</Text>
             </TouchableOpacity>
-
         </View>
     );
 };
