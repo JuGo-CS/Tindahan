@@ -8,13 +8,16 @@ import {
 import { useState } from 'react';
 import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
 import ModalButtons from './modalButtons.jsx';
-import Total from '../../includes/total.jsx';
+// import Total from '../../includes/total.jsx';
 import QuantityCounter from '../../includes/quantityCounter.jsx';
 
 const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
     const itemDeets = GetItemDetails(item);
     const [imageLoading, setImageLoading] = useState(false);
     const fullItemName = `${item.name} ${item.variant} (${item.weight})`;
+
+    const [totalAmount, setTotalAmount] = useState(0);
+    const [totalQuantity, setTotalQuantity] = useState(1);
 
     return (
         <View className="absolute top-0 right-0 left-0 bottom-0 z-50 bg-black/50">
@@ -70,10 +73,10 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                 </View>
 
                 {/* <View className="px-2 bottom-0">
-                    <Total />
+                    <Total totalQuantity={totalQuantity} setTotalQuantity={setTotalQuantity}/>
                 </View> */}
 
-                <QuantityCounter />
+                <QuantityCounter totalQuantity={totalQuantity} setTotalQuantity={setTotalQuantity}/>
 
                 <ModalButtons
                     onClose={onClose}
