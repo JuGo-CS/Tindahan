@@ -6,24 +6,31 @@ const QuantityCounter = () => {
 
     const decreaseCount = () => {
         if (totalCount - 1 >= 1) {
-            setTotalCount(totalCount - 1);
+            setTotalCount((oldValue) => oldValue - 1);
         }
     };
 
     return (
-        <View className="flex-1 flex-row justify-between">
-            <Text>Quantity : {totalCount}</Text>
+        <View className="flex-1 flex-row w-full px-2">
+            <View className="flex-1">
+                <Text>Quantity : {totalCount}</Text>
+            </View>
 
-            <View className="flex-row bg-red-500 justify-between">
+            <View className="flex-1 flex-row justify-between">
                 {/* for the + sign */}
-                <TouchableOpacity onPress={() => setTotalCount(totalCount + 1)}>
-                    <Text>+</Text>
-                </TouchableOpacity>
+                <View className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg">
+                    <TouchableOpacity onPress={() => decreaseCount()}>
+                        <Text className="font-black text-5xl">-</Text>
+                    </TouchableOpacity>
+                </View>
 
+                
                 {/* for the - sign */}
-                <TouchableOpacity onPress={() => decreaseCount()}>
-                    <Text>-</Text>
-                </TouchableOpacity>
+                <View className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg ml-2">
+                    <TouchableOpacity onPress={() => setTotalCount((oldValue) => oldValue + 1)}>
+                        <Text className="font-black text-3xl">+</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     );
