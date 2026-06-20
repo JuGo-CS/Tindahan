@@ -18,19 +18,15 @@ const QuantityCounter = () => {
 
             <View className="flex-1 flex-row justify-between">
                 {/* for the + sign */}
-                <View className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg">
-                    <TouchableOpacity onPress={() => decreaseCount()}>
-                        <Text className="font-black text-5xl">-</Text>
-                    </TouchableOpacity>
-                </View>
+                <TouchableOpacity className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg" onPress={() => decreaseCount()}>
+                    <Text className="font-black text-5xl">-</Text>
+                </TouchableOpacity>
 
                 
                 {/* for the - sign */}
-                <View className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg ml-2">
-                    <TouchableOpacity onPress={() => setTotalCount((oldValue) => oldValue + 1)}>
-                        <Text className="font-black text-3xl">+</Text>
-                    </TouchableOpacity>
-                </View>
+                <TouchableOpacity className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg ml-2" onPress={() => setTotalCount((oldValue) => oldValue + 1)}>
+                    <Text className="font-black text-3xl">+</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
