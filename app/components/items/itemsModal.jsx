@@ -47,7 +47,9 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                 </View>
 
                 {/* 🏷️ Card Descriptions Content */}
-                <View className={`p-2 flex-col justify-start min-h-[60px]`}>
+                <View
+                    className={`p-2 flex-col justify-start min-h-[60px] bg-gray-200`}
+                >
                     {/* Brand Name */}
                     <Text
                         className="text-3xl font-black text-textBlue tracking-tight leading-tight"
@@ -58,19 +60,18 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                 </View>
 
                 {/* 💰 Price Layout Tag */}
-                <View className="-mt-2 mb-2 mx-1 flex-row  items-end px-1">
+                <View className="mb-2 mx-1 flex-row justify-between items-end px-1">
+                    <Text className="text-2xl font-bold text-textSecondaryBlue ">
+                        Pc /{' '}
+                    </Text>
                     <Text className="text-3xl font-black text-primaryGreen">
                         ₱{parseFloat(itemDeets.itemPrice.toString()).toFixed(0)}
                     </Text>
-                    <Text className="text-3xl font-bold text-textSecondaryBlue ">
-                        {' '}
-                        / pc
-                    </Text>
                 </View>
 
-                <View className="px-2 bottom-0">
+                {/* <View className="px-2 bottom-0">
                     <Total />
-                </View>
+                </View> */}
 
                 <QuantityCounter />
 

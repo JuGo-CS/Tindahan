@@ -11,20 +11,28 @@ const QuantityCounter = () => {
     };
 
     return (
-        <View className="flex-1 flex-row w-full px-2">
-            <View className="flex-1">
-                <Text>Quantity : {totalCount}</Text>
+        <View className="flex-1 flex-col px-2 justify-between top-0 bottom-16">
+            <View className=" text-2xl flex-row justify-between">
+                <Text className="text-2xl font-bold text-textSecondaryBlue">
+                    Quantity :
+                </Text>
+                <Text> {totalCount} </Text>
             </View>
 
-            <View className="flex-1 flex-row justify-between">
+            <View className="flex-row justify-between bottom-20">
                 {/* for the + sign */}
-                <TouchableOpacity className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg" onPress={() => decreaseCount()}>
+                <TouchableOpacity
+                    className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg"
+                    onPress={() => decreaseCount()}
+                >
                     <Text className="font-black text-5xl">-</Text>
                 </TouchableOpacity>
 
-                
                 {/* for the - sign */}
-                <TouchableOpacity className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg ml-2" onPress={() => setTotalCount((oldValue) => oldValue + 1)}>
+                <TouchableOpacity
+                    className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg ml-2"
+                    onPress={() => setTotalCount((oldValue) => oldValue + 1)}
+                >
                     <Text className="font-black text-3xl">+</Text>
                 </TouchableOpacity>
             </View>
