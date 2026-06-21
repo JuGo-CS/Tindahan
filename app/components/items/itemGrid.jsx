@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, useWindowDimensions } from 'react-native';
 import ItemProductCard from './itemProductCard';
 
-const ItemGrid = ({ items, onAddItem }) => {
+const ItemGrid = ({ items, onHandleModal }) => {
     const { width } = useWindowDimensions();
 
     const numColumns = width < 400 ? 2 : width < 768 ? 3 : 4;
@@ -15,7 +15,7 @@ const ItemGrid = ({ items, onAddItem }) => {
             numColumns={numColumns}
             contentContainerStyle={{ paddingHorizontal: 9, paddingBottom: 120 }}
             renderItem={({ item }) => (
-                <ItemProductCard item={item} onAddPress={onAddItem} />
+                <ItemProductCard item={item} onHandleModal={onHandleModal} />
             )}
         />
     );

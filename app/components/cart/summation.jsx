@@ -1,12 +1,14 @@
 import { View } from 'react-native';
-import Total from './total.jsx';
+import Total from '../../includes/total.jsx';
 import UtangButton from './utangButton.jsx';
 import BayadButton from './bayadButton.jsx';
 
 const Summation = ({ totalAmount, onUtangPress, onBayadPress }) => {
     return (
         <View className="w-full bg-white border-t border-gray-200 px-4 pt-4 pb-6 bottom-0 ">
-            <Total amount={totalAmount} />
+            <View className="mb-4 px-1">
+                <Total amount={totalAmount} />
+            </View>
 
             <View className="flex-row w-full gap-3 justify-between">
                 <UtangButton onPress={onUtangPress} />

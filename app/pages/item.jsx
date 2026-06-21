@@ -38,7 +38,7 @@ const ItemScreen = () => {
         setToastVisible(true);
     };
 
-    const handleAddToCart = (selectedItem) => {
+    const handleItemModal = (selectedItem) => {
         setSelectedItem(selectedItem);
         setModalVisible(true);
     };
@@ -46,9 +46,14 @@ const ItemScreen = () => {
     const filteredItems = items.filter((item) => {
         // Safe check: make sure the item has a name before trying to change case
         const itemName = item.name ? item.name.toLowerCase() : '';
+        const variantName = item.variant ? item.variant.toLowerCase() : '';
         const searchString = searchQuery.toLowerCase();
 
-        return itemName.includes(searchString);
+        const searchedItem =
+            itemName.includes(searchString) ||
+            variantName.includes(searchString);
+
+        return searchedItem;
     });
 
     if (loading) {
@@ -82,6 +87,7 @@ const ItemScreen = () => {
                     setItem={setSelectedItem}
                     setQuantity={setQuantity}
                     onClose={() => setModalVisible(false)}
+                    addItemToCart={addItemToCart}
                 />
             )}
 
@@ -96,7 +102,10 @@ const ItemScreen = () => {
                     </Text>
                 </View>
             ) : (
-                <ItemGrid items={filteredItems} onAddItem={handleAddToCart} />
+                <ItemGrid
+                    items={filteredItems}
+                    onHandleModal={handleItemModal}
+                />
             )}
         </View>
     );
