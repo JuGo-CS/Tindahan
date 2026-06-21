@@ -51,7 +51,7 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
 
                 {/* 🏷️ Card Descriptions Content */}
                 <View
-                    className={`p-2 flex-col justify-center min-h-[60px] bg-grayColor`}
+                    className={`p-2 flex-col justify-center min-h-[60px] bg-gray-200`}
                 >
                     {/* Brand Name */}
                     <Text
