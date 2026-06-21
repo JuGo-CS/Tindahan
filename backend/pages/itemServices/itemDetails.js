@@ -7,15 +7,15 @@ export const GetItemDetails = (item) => {
         ? `${CLOUDINARY_BASE_URL}${item.item_picture}`
         : `${CLOUDINARY_BASE_URL}v1781356002/image_holder.webp`;
 
-    // Grab individual retail price safely
-    const pcUnit = item.item_units?.find((u) => u.unit_type === 'pc');
-    const pcPrice = pcUnit ? pcUnit.type_price : 0;
-    const hasContent = item.name || item.variant || item.weight;
+    const allUnits = item.item_units || [];
+
+    const primaryUnit = allUnits.find((u) => u.unit_type === 'pc') || allUnits[0];
+    const defaultPrice = primaryUnit ? primaryUnit.type_price : 0;
 
     return {
         imageUrl: fullImageUrl,
-        itemPrice: pcPrice,
-        hasContent: hasContent,
+        itemPrice: defaultPrice, 
+        units: allUnits,     
         name: item.name || 'No Name',
         variant: item.variant || '',
         weight: item.weight || '',
