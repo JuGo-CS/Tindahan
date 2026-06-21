@@ -10,15 +10,9 @@ const QuantityCounter = ({ totalQuantity, setTotalQuantity }) => {
     };
 
     return (
-        <View className="flex-1 flex-col px-2 justify-between top-0 bottom-16">
-            <View className="text-2xl flex-row justify-between">
-                <Text className="text-2xl font-bold text-textSecondaryBlue">
-                    Quantity :
-                </Text>
-                <Text className="text-2xl font-black">x {totalQuantity}</Text>
-            </View>
+        <View className="px-2 justify-between bottom-0">
 
-            <View className="flex-row justify-between bottom-20">
+            <View className="flex-row justify-between">
                 {/* for the + sign */}
                 <TouchableOpacity
                     className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg"

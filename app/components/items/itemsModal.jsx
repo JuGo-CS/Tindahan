@@ -72,17 +72,27 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                     </Text>
                 </View>
 
+                <View className="text-2xl flex-row justify-between mx-2">
+                    <Text className="text-2xl font-bold text-textSecondaryBlue">
+                        Quantity :
+                    </Text>
+                    <Text className="text-2xl font-black">x {totalQuantity}</Text>
+                </View>
+
                 {/* <View className="px-2 bottom-0">
                     <Total totalQuantity={totalQuantity} setTotalQuantity={setTotalQuantity}/>
                 </View> */}
 
-                <QuantityCounter totalQuantity={totalQuantity} setTotalQuantity={setTotalQuantity}/>
-
-                <ModalButtons
-                    onClose={onClose}
-                    item={item}
-                    addItemToCart={addItemToCart}
-                />
+                
+                
+                <View className="absolute left-0 right-0 bottom-3 gap-2">
+                    <QuantityCounter totalQuantity={totalQuantity} setTotalQuantity={setTotalQuantity}/>
+                    <ModalButtons
+                        onClose={onClose}
+                        item={item}
+                        addItemToCart={addItemToCart}
+                    />
+                </View>
             </View>
         </View>
     );

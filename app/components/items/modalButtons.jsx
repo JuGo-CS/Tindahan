@@ -2,7 +2,7 @@ import { View, TouchableOpacity, Text } from 'react-native';
 
 const ModalButtons = ({ onClose, item, addItemToCart }) => {
     return (
-        <View className="absolute left-0 right-0 bottom-3 flex-row gap-2 mx-2 h-16">
+        <View className="flex-row gap-2 mx-2 h-16">
             <TouchableOpacity
                 onPress={() => onClose()}
                 className="flex-1 bg-activeOrange p-3 rounded-lg items-center justify-center"
