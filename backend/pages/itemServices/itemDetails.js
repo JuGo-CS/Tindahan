@@ -9,13 +9,14 @@ export const GetItemDetails = (item) => {
 
     const allUnits = item.item_units || [];
 
-    const primaryUnit = allUnits.find((u) => u.unit_type === 'pc') || allUnits[0];
+    const primaryUnit =
+        allUnits.find((u) => u.unit_type === 'pc') || allUnits[0];
     const defaultPrice = primaryUnit ? primaryUnit.type_price : 0;
 
     return {
         imageUrl: fullImageUrl,
-        itemPrice: defaultPrice, 
-        units: allUnits,     
+        itemPrice: defaultPrice,
+        units: allUnits,
         name: item.name || 'No Name',
         variant: item.variant || '',
         weight: item.weight || '',

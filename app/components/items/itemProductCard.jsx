@@ -44,9 +44,7 @@ const ItemProductCard = ({ item, onHandleModal }) => {
             </View>
 
             {/* 🏷️ Card Descriptions Content */}
-            <View
-                className={`p-2 flex-col flex-1 justify-start min-h-16`}
-            >
+            <View className={`p-2 flex-col flex-1 justify-start min-h-16`}>
                 {/* Brand Name */}
                 <Text
                     className="text-2xl font-black text-textBlue tracking-tight leading-tight"
@@ -70,15 +68,20 @@ const ItemProductCard = ({ item, onHandleModal }) => {
             <View className="mt-2 mx-1 p-2 flex-col justify-end h-20 rounded-lg">
                 {itemDeets.units.length === 0 ? (
                     // Fallback placeholder text if database is missing entry arrays
-                    <Text className="text-sm italic text-gray-400 text-center">No price set</Text>
+                    <Text className="text-sm italic text-gray-400 text-center">
+                        No price set
+                    </Text>
                 ) : (
                     itemDeets.units.map((unit, index) => (
-                        <View 
-                            key={index} 
+                        <View
+                            key={index}
                             className="flex-row justify-between items-center w-full"
                         >
                             <Text className="text-3xl font-black text-primaryGreen">
-                                ₱{parseFloat(unit.type_price.toString()).toFixed(0)}
+                                ₱
+                                {parseFloat(unit.type_price.toString()).toFixed(
+                                    0,
+                                )}
                             </Text>
                             <Text className="font-medium text-textBlue">
                                 / {unit.unit_type}
