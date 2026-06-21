@@ -18,6 +18,10 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
 
     const [productPrice, setProductPrice] = useState(itemDeets.itemPrice);
     const [totalQuantity, setTotalQuantity] = useState(1);
+    const [unitType, setUnitType] = useState(itemDeets.units[0]);
+
+    const unitButtonColor = itemDeets.units.length === 1 ? 'bg-gray-200' : 'bg-gray-600';
+    const textButtonColor = itemDeets.units.length === 1 ? 'text-slate-800' : 'text-white';
 
     return (
         <View className="absolute top-0 right-0 left-0 bottom-0 z-50 bg-black/50">
@@ -62,18 +66,16 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                     </Text>
                 </View>
 
-                {/* 💰 Price Layout Tag */}
+                {/* 💰 Price Tab button for picking what type of unit*/}
                 <View className="my-2 mx-1 flex-row justify-between items-end px-1">
                     <View className="flex-1 mr-2">
-                        <TouchableOpacity className="w-full bg-grayColor border border-gray-400 rounded-lg py-1">
-                            <Text className="text-xl font-bold text-white px-2">
-                                Pc /
+                        <TouchableOpacity className={`w-full ${unitButtonColor} border border-gray-400 rounded-lg py-1`}>
+                            <Text className={`text-xl font-bold ${textButtonColor} px-2`}>
+                                {unitType.unit_type}
                             </Text>
                         </TouchableOpacity>
                     </View>
 
-                    {/* 🟢 Right Half (50% Width) */}
-                    {/* We use 'items-end' so your price text aligns nicely against the right boundary edge */}
                     <View className="flex-1 items-end">
                         <Text className="text-3xl font-black text-primaryGreen">
                             ₱
