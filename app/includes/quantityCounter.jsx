@@ -16,7 +16,9 @@ const QuantityCounter = ({ totalQuantity, setTotalQuantity }) => {
                     className="flex-1 items-center justify-center h-16 border border-gray-400 bg-grayColor rounded-lg"
                     onPress={() => decreaseCount()}
                 >
-                    <Text className="font-black text-5xl">-</Text>
+                    <Text className="font-extrabold text-white text-5xl">
+                        -
+                    </Text>
                 </TouchableOpacity>
 
                 {/* for the - sign */}
@@ -24,7 +26,9 @@ const QuantityCounter = ({ totalQuantity, setTotalQuantity }) => {
                     className="flex-1 items-center justify-center h-16 border border-gray-400 bg-grayColor rounded-lg ml-2"
                     onPress={() => setTotalQuantity((oldValue) => oldValue + 1)}
                 >
-                    <Text className="font-black text-3xl">+</Text>
+                    <Text className="font-extrabold text-white text-3xl">
+                        +
+                    </Text>
                 </TouchableOpacity>
             </View>
         </View>

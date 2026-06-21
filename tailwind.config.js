@@ -19,7 +19,7 @@ module.exports = {
                 inactiveBlue: '#45D0DA',
                 activeOrange: '#FF8C42',
                 inactiveOrange: '#FFA56C',
-                grayColor: '#d1d5db',
+                grayColor: '#4b5563',
             },
         },
     },

@@ -63,13 +63,25 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                 </View>
 
                 {/* 💰 Price Layout Tag */}
-                <View className="mb-2 mx-1 flex-row justify-between items-end px-1">
-                    <Text className="text-2xl font-bold text-textSecondaryBlue ">
-                        Pc /{' '}
-                    </Text>
-                    <Text className="text-3xl font-black text-primaryGreen">
-                        ₱{parseFloat(itemDeets.itemPrice.toString()).toFixed(0)}
-                    </Text>
+                <View className="my-2 mx-1 flex-row justify-between items-end px-1">
+                    <View className="flex-1 mr-2">
+                        <TouchableOpacity className="w-full bg-grayColor border border-gray-400 rounded-lg py-1">
+                            <Text className="text-xl font-bold text-white px-2">
+                                Pc /
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    {/* 🟢 Right Half (50% Width) */}
+                    {/* We use 'items-end' so your price text aligns nicely against the right boundary edge */}
+                    <View className="flex-1 items-end">
+                        <Text className="text-3xl font-black text-primaryGreen">
+                            ₱
+                            {parseFloat(itemDeets.itemPrice.toString()).toFixed(
+                                0,
+                            )}
+                        </Text>
+                    </View>
                 </View>
 
                 {/* Quantity */}
