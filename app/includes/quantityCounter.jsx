@@ -13,7 +13,7 @@ const QuantityCounter = ({ totalQuantity, setTotalQuantity }) => {
             <View className="flex-row justify-between">
                 {/* for the + sign */}
                 <TouchableOpacity
-                    className="flex-1 items-center justify-center h-16 border border-gray-400 bg-grayColor rounded-lg"
+                    className="flex-1 items-center justify-center h-16 border border-gray-400 bg-grayEnabled rounded-lg"
                     onPress={() => decreaseCount()}
                 >
                     <Text className="font-extrabold text-white text-5xl">
@@ -23,7 +23,7 @@ const QuantityCounter = ({ totalQuantity, setTotalQuantity }) => {
 
                 {/* for the - sign */}
                 <TouchableOpacity
-                    className="flex-1 items-center justify-center h-16 border border-gray-400 bg-grayColor rounded-lg ml-2"
+                    className="flex-1 items-center justify-center h-16 border border-gray-400 bg-grayEnabled rounded-lg ml-2"
                     onPress={() => setTotalQuantity((oldValue) => oldValue + 1)}
                 >
                     <Text className="font-extrabold text-white text-3xl">

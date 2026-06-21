@@ -20,8 +20,10 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
     const [totalQuantity, setTotalQuantity] = useState(1);
     const [unitType, setUnitType] = useState(itemDeets.units[0]);
 
-    const unitButtonColor = itemDeets.units.length === 1 ? 'bg-gray-200' : 'bg-gray-600';
-    const textButtonColor = itemDeets.units.length === 1 ? 'text-slate-800' : 'text-white';
+    const unitButtonColor =
+        itemDeets.units.length === 1 ? 'bg-gray-200' : 'bg-gray-600';
+    const textButtonColor =
+        itemDeets.units.length === 1 ? 'text-slate-800' : 'text-white';
     const isUnitButtonEnable = itemDeets.units.length === 1 ? true : false;
 
     return (
@@ -70,8 +72,13 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                 {/* 💰 Price Tab button for picking what type of unit*/}
                 <View className="my-2 mx-1 flex-row justify-between items-end px-1">
                     <View className="flex-1 mr-2">
-                        <TouchableOpacity disabled={isUnitButtonEnable} className={`w-full ${unitButtonColor} border border-gray-400 rounded-lg py-1`}>
-                            <Text className={`text-xl font-bold ${textButtonColor} px-2`}>
+                        <TouchableOpacity
+                            disabled={isUnitButtonEnable}
+                            className={`w-full ${unitButtonColor} border border-gray-400 rounded-lg py-1`}
+                        >
+                            <Text
+                                className={`text-xl font-bold ${textButtonColor} px-2`}
+                            >
                                 {unitType.unit_type}
                             </Text>
                         </TouchableOpacity>
