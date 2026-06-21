@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 const QuantityCounter = ({ totalQuantity, setTotalQuantity }) => {
-
     const decreaseCount = () => {
         if (totalQuantity - 1 >= 1) {
             setTotalQuantity((oldValue) => oldValue - 1);
@@ -11,11 +10,10 @@ const QuantityCounter = ({ totalQuantity, setTotalQuantity }) => {
 
     return (
         <View className="px-2 justify-between bottom-0">
-
             <View className="flex-row justify-between">
                 {/* for the + sign */}
                 <TouchableOpacity
-                    className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg"
+                    className="flex-1 items-center justify-center h-16 border border-gray-400 bg-grayColor rounded-lg"
                     onPress={() => decreaseCount()}
                 >
                     <Text className="font-black text-5xl">-</Text>
@@ -23,7 +21,7 @@ const QuantityCounter = ({ totalQuantity, setTotalQuantity }) => {
 
                 {/* for the - sign */}
                 <TouchableOpacity
-                    className="flex-1 items-center justify-center h-16 border border-gray-400 rounded-lg ml-2"
+                    className="flex-1 items-center justify-center h-16 border border-gray-400 bg-grayColor rounded-lg ml-2"
                     onPress={() => setTotalQuantity((oldValue) => oldValue + 1)}
                 >
                     <Text className="font-black text-3xl">+</Text>

@@ -16,7 +16,7 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
     const [imageLoading, setImageLoading] = useState(false);
     const fullItemName = `${item.name} ${item.variant} (${item.weight})`;
 
-    const [totalAmount, setTotalAmount] = useState(0);
+    const [productPrice, setProductPrice] = useState(itemDeets.itemPrice);
     const [totalQuantity, setTotalQuantity] = useState(1);
 
     return (
@@ -31,7 +31,7 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                 </TouchableOpacity>
 
                 {/* the photo on the modal */}
-                <View className="w-full aspect-square rounded-t-xl items-center justify-center relative overflow-hidden">
+                <View className="w-full h-72 rounded-t-xl items-center justify-center relative overflow-hidden">
                     {imageLoading && (
                         <ActivityIndicator
                             className="absolute z-10"
@@ -51,7 +51,7 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
 
                 {/* 🏷️ Card Descriptions Content */}
                 <View
-                    className={`p-2 flex-col justify-start min-h-[60px] bg-gray-200`}
+                    className={`p-2 flex-col justify-center min-h-[60px] bg-grayColor`}
                 >
                     {/* Brand Name */}
                     <Text
@@ -72,21 +72,34 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                     </Text>
                 </View>
 
+                {/* Quantity */}
                 <View className="text-2xl flex-row justify-between mx-2">
                     <Text className="text-2xl font-bold text-textSecondaryBlue">
                         Quantity :
                     </Text>
-                    <Text className="text-2xl font-black">x {totalQuantity}</Text>
+                    <Text className="text-2xl font-black">
+                        x {totalQuantity}
+                    </Text>
                 </View>
 
-                {/* <View className="px-2 bottom-0">
-                    <Total totalQuantity={totalQuantity} setTotalQuantity={setTotalQuantity}/>
-                </View> */}
+                {/* horizontal lign */}
+                <View className="w-full h-0 border-t-4 border-dashed border-gray-500 my-4 mx-2" />
 
-                
-                
+                {/* total based on the quantity and product price */}
+                <View className="flex-row justify-between items-center mx-2">
+                    <Text className="text-textBlue text-2xl font-medium">
+                        Total:
+                    </Text>
+                    <Text className="text-textBlue text-4xl font-black">
+                        ₱{productPrice * totalQuantity}
+                    </Text>
+                </View>
+
                 <View className="absolute left-0 right-0 bottom-3 gap-2">
-                    <QuantityCounter totalQuantity={totalQuantity} setTotalQuantity={setTotalQuantity}/>
+                    <QuantityCounter
+                        totalQuantity={totalQuantity}
+                        setTotalQuantity={setTotalQuantity}
+                    />
                     <ModalButtons
                         onClose={onClose}
                         item={item}
