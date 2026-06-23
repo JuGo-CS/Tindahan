@@ -5,8 +5,8 @@ const ItemContext = createContext();
 export const ItemsCart = ({ children }) => {
     const [itemLists, setItemLists] = useState([]);
 
-    const addItemToCart = (newItem) => {
-        setItemLists((oldItemLists) => [...oldItemLists, newItem]);
+    const addItemToCart = (newItem, quantity) => {
+        setItemLists((oldItemLists) => [...oldItemLists, [newItem, quantity]]);
     };
 
     const getItemLists = () => {
