@@ -19,7 +19,7 @@ const ItemScreen = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [quantity, setQuantity] = useState(1);
 
-    const { addItemToCart, getItemLists } = useItemContext();
+    const { addItemToCart} = useItemContext();
 
     useEffect(() => {
         const fetchStoreCatalog = async () => {

@@ -126,6 +126,8 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                         onClose={onClose}
                         item={item}
                         addItemToCart={addItemToCart}
+                        totalQuantity={totalQuantity}
+                        setTotalQuantity={setTotalQuantity}
                     />
                 </View>
             </View>
