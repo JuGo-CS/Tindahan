@@ -1,6 +1,12 @@
-import { View, TouchableOpacity, Text } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
-const ModalButtons = ({ onClose, item, addItemToCart }) => {
+const ModalButtons = ({
+    onClose,
+    item,
+    addItemToCart,
+    totalQuantity,
+    setTotalQuantity,
+}) => {
     return (
         <View className="flex-row gap-2 mx-2 h-16">
             <TouchableOpacity
@@ -12,7 +18,7 @@ const ModalButtons = ({ onClose, item, addItemToCart }) => {
 
             <TouchableOpacity
                 onPress={() => {
-                    addItemToCart(item);
+                    addItemToCart(item, totalQuantity);
                     onClose();
                 }}
                 className="flex-1 bg-activeBlue p-3 rounded-lg items-center justify-center"

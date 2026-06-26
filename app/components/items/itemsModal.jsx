@@ -1,15 +1,15 @@
-import {
-    View,
-    Text,
-    Image,
-    TouchableOpacity,
-    ActivityIndicator,
-} from 'react-native';
 import { useState } from 'react';
-import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
+import {
+    ActivityIndicator,
+    Image,
+    Text,
+    TouchableOpacity,
+    View,
+} from 'react-native';
+import { GetItemDetails } from '../../../backend/services/itemServices/itemDetails.js';
 import ModalButtons from './modalButtons.jsx';
 // import Total from '../../includes/total.jsx';
-import QuantityCounter from '../../includes/quantityCounter.jsx';
+import QuantityCounter from '../ui/quantityCounter.jsx';
 
 const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
     const itemDeets = GetItemDetails(item);
@@ -126,6 +126,8 @@ const ItemsModal = ({ item, setItem, setQuantity, onClose, addItemToCart }) => {
                         onClose={onClose}
                         item={item}
                         addItemToCart={addItemToCart}
+                        totalQuantity={totalQuantity}
+                        setTotalQuantity={setTotalQuantity}
                     />
                 </View>
             </View>
