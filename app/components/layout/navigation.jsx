@@ -2,7 +2,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { usePathname, useRouter } from 'expo-router';
 import { Pressable, Text, View, useWindowDimensions } from 'react-native';
-import { useItemContext } from '../../backend/services/cartServices/itemsInCart';
+import { useItemContext } from '../../../backend/services/cartServices/itemsInCart.js';
 
 const Navigation = () => {
     const router = useRouter();
