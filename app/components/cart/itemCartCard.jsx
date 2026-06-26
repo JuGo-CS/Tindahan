@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
+import { useState } from 'react';
+import {
+    ActivityIndicator,
+    Image,
+    Text,
+    TouchableOpacity,
+    View,
+} from 'react-native';
 import { useItemContext } from '../../../backend/pages/cartServices/itemsInCart.js';
+import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
 
 const ItemCartCard = ({ item, quantity }) => {
     const itemDeets = GetItemDetails(item);
@@ -47,7 +53,9 @@ const ItemCartCard = ({ item, quantity }) => {
             {/* ➖ / 🔢 / ➕ Quantity Controls */}
             <View className="flex-row items-center gap-2 ml-2">
                 <TouchableOpacity
-                    onPress={() => updateItemQuantity(item.item_id, quantity - 1)}
+                    onPress={() =>
+                        updateItemQuantity(item.item_id, quantity - 1)
+                    }
                     className="w-8 h-8 rounded-full bg-gray-200 items-center justify-center"
                     activeOpacity={0.7}
                 >
@@ -61,7 +69,9 @@ const ItemCartCard = ({ item, quantity }) => {
                 </Text>
 
                 <TouchableOpacity
-                    onPress={() => updateItemQuantity(item.item_id, quantity + 1)}
+                    onPress={() =>
+                        updateItemQuantity(item.item_id, quantity + 1)
+                    }
                     className="w-8 h-8 rounded-full bg-primaryGreen items-center justify-center"
                     activeOpacity={0.7}
                 >

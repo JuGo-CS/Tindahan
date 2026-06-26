@@ -1,7 +1,7 @@
 import { View } from 'react-native';
-import Summation from '../components/cart/summation.jsx';
-import ItemCartGrid from '../components/cart/itemCartGrid.jsx';
 import { useItemContext } from '../../backend/pages/cartServices/itemsInCart.js';
+import ItemCartGrid from '../components/cart/itemCartGrid.jsx';
+import Summation from '../components/cart/summation.jsx';
 
 const CartScreen = () => {
     const { getItemLists } = useItemContext();

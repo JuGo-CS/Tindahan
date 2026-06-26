@@ -1,4 +1,4 @@
-import { useState, useContext, createContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const ItemContext = createContext();
 
@@ -41,9 +41,7 @@ export const ItemsCart = ({ children }) => {
 
     const removeItem = (itemId) => {
         setItemLists((oldItemLists) =>
-            oldItemLists.filter(
-                (cartItem) => cartItem.item.item_id !== itemId,
-            ),
+            oldItemLists.filter((cartItem) => cartItem.item.item_id !== itemId),
         );
     };
 
