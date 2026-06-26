@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { useItemContext } from '../../backend/pages/cartServices/itemsInCart.js';
+import { useItemContext } from '../../backend/services/cartServices/itemsInCart.js';
 import ItemCartGrid from '../components/cart/itemCartGrid.jsx';
 import Summation from '../components/cart/summation.jsx';
 

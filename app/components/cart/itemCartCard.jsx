@@ -6,8 +6,8 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
-import { useItemContext } from '../../../backend/pages/cartServices/itemsInCart.js';
-import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
+import { useItemContext } from '../../../backend/services/cartServices/itemsInCart.js';
+import { GetItemDetails } from '../../../backend/services/itemServices/itemDetails.js';
 
 const ItemCartCard = ({ item, quantity }) => {
     const itemDeets = GetItemDetails(item);

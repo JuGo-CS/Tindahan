@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
-import { useItemContext } from '../../backend/pages/cartServices/itemsInCart.js';
-import { itemService } from '../../backend/pages/itemServices/fetchingItems';
+import { useItemContext } from '../../backend/services/cartServices/itemsInCart.js';
+import { itemService } from '../../backend/services/itemServices/fetchingItems';
 import ItemGrid from '../components/items/itemGrid';
-import SearchBar from '../components/items/searchBar.jsx';
-import Toast from '../includes/toast.jsx';
 import ItemsModal from '../components/items/itemsModal.jsx';
+import SearchBar from '../components/items/searchBar.jsx';
+import Toast from '../components/ui/toast.jsx';
 
 const ItemScreen = () => {
     const [items, setItems] = useState([]);

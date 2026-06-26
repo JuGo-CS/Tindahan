@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
-    View,
-    Text,
-    Image,
-    TouchableOpacity,
     ActivityIndicator,
+    Image,
+    Text,
+    TouchableOpacity,
+    View,
 } from 'react-native';
-import { GetItemDetails } from '../../../backend/pages/itemServices/itemDetails.js';
+import { GetItemDetails } from '../../../backend/services/itemServices/itemDetails.js';
 
 const ItemProductCard = ({ item, onHandleModal }) => {
     const itemDeets = GetItemDetails(item);
