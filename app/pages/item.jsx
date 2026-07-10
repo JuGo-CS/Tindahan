@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 import { useItemContext } from '../../backend/services/cartServices/itemsInCart.js';
-import { itemService } from '../../backend/services/itemServices/fetchingItems';
+import { useItemData } from '../contexts/itemDataContext.jsx';
 import ItemGrid from '../components/items/itemGrid';
 import ItemsModal from '../components/items/itemsModal.jsx';
 import SearchBar from '../components/items/searchBar.jsx';
 import Toast from '../components/ui/toast.jsx';
 
 const ItemScreen = () => {
-    const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
 
     const [toastMessage, setToastMessage] = useState('');
@@ -20,18 +18,7 @@ const ItemScreen = () => {
     const [quantity, setQuantity] = useState(1);
 
     const { addItemToCart } = useItemContext();
-
-    useEffect(() => {
-        const fetchStoreCatalog = async () => {
-            const data = await itemService.getAllActiveItems();
-            if (data) {
-                setItems(data);
-            }
-            setLoading(false);
-        };
-
-        fetchStoreCatalog();
-    }, []);
+    const { items, loading } = useItemData();
 
     const triggerToast = (message) => {
         setToastMessage(message);
